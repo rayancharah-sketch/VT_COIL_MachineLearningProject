@@ -156,7 +156,7 @@ def plot_training_history(history):
     print("\n✓ Training history plot saved to models/training_history.png")
     plt.close()
 
-def calculate_feature_importance(model, X_test, feature_names):
+def calculate_feature_importance(model, X_test, y_test, feature_names):
     """
     Calculate feature importance using permutation importance approximation
     
@@ -219,7 +219,7 @@ if __name__ == "__main__":
     plot_training_history(history)
     
     # Calculate feature importance
-    importance = calculate_feature_importance(model, X_test, feature_names)
+    importance = calculate_feature_importance(model, X_test, y_test, feature_names)
     
     print("\nFeature Importance:")
     for feature, score in sorted(importance.items(), key=lambda x: x[1], reverse=True):

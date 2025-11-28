@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+import seaborn as sns
 import joblib
 import os
 
@@ -54,8 +56,12 @@ def load_and_preprocess_data(dataset_path='Healthcare-Diabetes.csv'):
     print(f"Class distribution:\n{df[target_col].value_counts()}")
     
     # Separate features and target
-    X = df.drop(columns=[target_col])
+    X = df.drop(columns=["Id", target_col])
     y = df[target_col]
+
+    # matriz = X.corr()
+    # sns.heatmap(matriz, annot=True, cmap="coolwarm", fmt="0.3f")
+    # plt.show()
     
     # Keep only numeric features
     X = X.select_dtypes(include=[np.number])
