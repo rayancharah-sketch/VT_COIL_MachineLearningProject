@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Diabetes Risk Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">🏥 Diabetes Risk Predictor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">About This Project</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4>Project Overview</h4>
+                        <p>
+                            This diabetes risk prediction application uses machine learning to assess 
+                            an individual's risk of developing diabetes based on various health metrics. 
+                            The project was developed as part of the VGC Group Project for Virginia Tech 
+                            and USFQ courses.
+                        </p>
+
+                        <h4 class="mt-4">Learning Objectives</h4>
+                        <ul>
+                            <li>Understand how neural networks work and classify medical data</li>
+                            <li>Gain practical experience with Python, TensorFlow/Keras, and scikit-learn</li>
+                            <li>Explore the application of AI and machine learning in healthcare</li>
+                            <li>Develop web applications that integrate machine learning models</li>
+                        </ul>
+
+                        <h4 class="mt-4">Technology Stack</h4>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h6 class="card-title">🧠 Machine Learning</h6>
+                                        <ul class="small">
+                                            <li>TensorFlow/Keras - Neural Network Framework</li>
+                                            <li>scikit-learn - Data Preprocessing & Metrics</li>
+                                            <li>pandas - Data Manipulation</li>
+                                            <li>NumPy - Numerical Computing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h6 class="card-title">🌐 Web Development</h6>
+                                        <ul class="small">
+                                            <li>Flask - Web Framework</li>
+                                            <li>Bootstrap 5 - UI Components</li>
+                                            <li>HTML/CSS/JavaScript - Frontend</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Model Architecture</h4>
+                        <p>
+                            The prediction model is a feedforward neural network with:
+                        </p>
+                        <ul>
+                            <li><strong>Input Layer:</strong> Accepts normalized health metrics</li>
+                            <li><strong>Hidden Layer 1:</strong> 16 neurons with ReLU activation and 30% dropout</li>
+                            <li><strong>Hidden Layer 2:</strong> 8 neurons with ReLU activation and 20% dropout</li>
+                            <li><strong>Output Layer:</strong> 1 neuron with sigmoid activation for binary classification</li>
+                        </ul>
+
+                        <h4 class="mt-4">Dataset</h4>
+                        <p>
+                            The model is trained on the "Healthcare Diabetes" dataset from Kaggle 
+                            (<code>nanditapore/healthcare-diabetes</code>), which contains various health 
+                            indicators and diabetes outcomes for multiple individuals.
+                        </p>
+
+                        <h4 class="mt-4">Team Members</h4>
+                        <ul>
+                            <li>Rayan Charah - 906695619</li>
+                            <li>Ifzaal Ahamed Imdad - 906718090</li>
+                            <li>Jhonatan Quiroga - 00330058</li>
+                        </ul>
+
+                        <h4 class="mt-4">Important Disclaimer</h4>
+                        <div class="alert alert-warning">
+                            <strong>⚠️ Medical Disclaimer:</strong><br>
+                            This tool is designed for <strong>educational purposes only</strong> and is NOT 
+                            intended to be used as a medical diagnostic tool. The predictions provided should 
+                            not replace professional medical advice, diagnosis, or treatment. Always seek the 
+                            advice of qualified healthcare professionals regarding any medical condition or 
+                            health concern.
+                        </div>
+
+                        <h4 class="mt-4">AI & LLM Usage</h4>
+                        <p>
+                            This project follows ethical AI guidelines set by Virginia Tech and USFQ. 
+                            Large Language Models (LLMs) such as ChatGPT were consulted for:
+                        </p>
+                        <ul>
+                            <li>Brainstorming model architectures and design patterns</li>
+                            <li>Debugging code and explaining error messages</li>
+                            <li>Generating ideas for visualization and explainability features</li>
+                        </ul>
+                        <p>
+                            All AI-generated code was reviewed, tested, and modified by the team to ensure 
+                            accuracy and appropriateness for this application.
+                        </p>
+
+                        <h4 class="mt-4">References</h4>
+                        <ol class="small">
+                            <li>Chinta, S. V., et al. (2025). AI-driven healthcare: A review. National Tsing Hua University.</li>
+                            <li>Koski, E., & Murphy, J. (2021). AI in Healthcare. New York: IBM.</li>
+                            <li>Saraswat, D., et al. (2022). Explainable AI for Healthcare 5.0. IEEE Access.</li>
+                            <li>Kaggle Healthcare Diabetes Dataset - nanditapore/healthcare-diabetes</li>
+                            <li>scikit-learn Documentation on Classification</li>
+                            <li>TensorFlow/Keras Official Documentation</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5 mb-4">
+        <p class="text-muted">
+            <small>VGC Group Project | Virginia Tech & USFQ | 2025</small>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

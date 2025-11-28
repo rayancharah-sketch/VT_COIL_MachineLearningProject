@@ -1,0 +1,225 @@
+# Quick Reference Guide
+
+## 🚀 Quick Commands
+
+### First-Time Setup
+```bash
+# 1. Install all dependencies
+pip install -r requirements.txt
+
+# 2. Verify dataset (optional - dataset already included)
+python data.py
+
+# 3. Train the model
+python train_model.py
+
+# 4. Launch web app
+python app.py
+```
+
+### Or Use the Automated Setup Script
+```bash
+python run_project.py
+```
+
+---
+
+## 📂 File Descriptions
+
+| File | Purpose |
+|------|---------|
+| `data.py` | Verifies the local diabetes dataset |
+| `preprocess.py` | Cleans and prepares data for training |
+| `train_model.py` | Builds and trains the neural network |
+| `app.py` | Flask web server for predictions |
+| `run_project.py` | Automated setup and run script |
+
+---
+
+## 🧪 Testing the Application
+
+### Test with Sample Data
+The web interface has a "Use Sample Data" button that fills the form with test values:
+- Pregnancies: 3
+- Glucose: 148
+- Blood Pressure: 72
+- Skin Thickness: 35
+- Insulin: 0
+- BMI: 33.6
+- Diabetes Pedigree Function: 0.627
+- Age: 50
+
+This sample should produce a **High Risk** prediction.
+
+### Testing Different Risk Levels
+
+**Low Risk Sample:**
+- All values at healthy levels (Glucose < 100, BMI < 25, etc.)
+
+**Moderate Risk Sample:**
+- Mix of normal and slightly elevated values
+
+**High Risk Sample:**
+- Multiple elevated risk factors (High glucose, high BMI, advanced age)
+
+---
+
+## 🔧 Common Tasks
+
+### Retrain Model with Different Parameters
+Edit `train_model.py` and modify:
+```python
+# Change number of neurons
+layers.Dense(32, activation='relu')  # Instead of 16
+
+# Change epochs
+history = model.fit(..., epochs=100)  # Instead of 50
+
+# Change dropout rate
+layers.Dropout(0.5)  # Instead of 0.3
+```
+
+### Add New Features to Web Interface
+1. Edit `templates/index.html` for UI changes
+2. Edit `static/css/style.css` for styling
+3. Edit `static/js/script.js` for frontend logic
+4. Edit `app.py` for backend logic
+
+### Check Model Performance
+After training, check these files:
+- `models/training_history.png` - Training curves
+- Terminal output - Detailed metrics
+- Web app footer - Quick performance summary
+
+---
+
+## 📊 Expected Model Performance
+
+Based on similar diabetes prediction models:
+- **Accuracy:** 70-85%
+- **Precision:** 65-80%
+- **Recall:** 60-75%
+- **F1-Score:** 65-78%
+
+Your actual results may vary based on the dataset and training parameters.
+
+---
+
+## ⚠️ Troubleshooting
+
+### Problem: Import errors
+```bash
+# Solution: Reinstall specific package
+pip install tensorflow==2.15.0 --force-reinstall
+```
+
+### Problem: Dataset not found
+```bash
+# Solution: Ensure Healthcare-Diabetes.csv is in the project root
+dir Healthcare-Diabetes.csv
+
+# Should show: Healthcare-Diabetes.csv
+```
+
+### Problem: Model training takes too long
+- Reduce `epochs` in train_model.py (try 20 instead of 50)
+- Use a smaller batch_size (try 16 instead of 32)
+
+### Problem: Web app shows "Model not found"
+```bash
+# Solution: Train the model first
+python train_model.py
+```
+
+### Problem: Port 5000 already in use
+```bash
+# Solution: Kill the process or use different port
+# Edit app.py line: app.run(..., port=5001)
+```
+
+---
+
+## 📋 Project Checklist
+
+### Before Presentation
+- [ ] Dataset verified (Healthcare-Diabetes.csv present)
+- [ ] Model trained with good performance (>70% accuracy)
+- [ ] Web application runs without errors
+- [ ] Tested predictions with various inputs
+- [ ] README documentation complete
+- [ ] Code is commented and clean
+- [ ] Git repository is up to date
+
+### Demo Preparation
+- [ ] Prepare 2-3 sample inputs to demonstrate
+- [ ] Screenshot of model performance metrics
+- [ ] Screenshot of web interface
+- [ ] Brief explanation of neural network architecture
+- [ ] Discuss learning outcomes and AI applications in healthcare
+
+---
+
+## 🎯 Team Workflow Tips
+
+### Code Collaboration
+1. Always pull latest changes before starting work
+2. Work on separate features in different files when possible
+3. Test your changes before committing
+4. Write clear commit messages
+
+### Division of Labor Example
+- **Person 1:** Data preprocessing and model training
+- **Person 2:** Web interface (HTML/CSS/JS)
+- **Person 3:** Flask backend and integration
+
+### Communication
+- Share updates on what you're working on
+- Ask for help if stuck (use classmates, staff, online resources)
+- Document any AI/LLM usage with comments
+
+---
+
+## 📖 Learning Resources
+
+### Neural Networks
+- TensorFlow tutorials: https://www.tensorflow.org/tutorials
+- 3Blue1Brown Neural Networks series (YouTube)
+
+### Flask Web Development
+- Flask quickstart: https://flask.palletsprojects.com/
+- Bootstrap documentation: https://getbootstrap.com/
+
+### Healthcare ML
+- Kaggle diabetes prediction notebooks
+- Research papers in references section of README
+
+---
+
+## 💡 Future Enhancements (Reach Goals)
+
+If you finish early and want to add more features:
+
+1. **Advanced AI Assistant**
+   - Integrate OpenAI API for natural language responses
+   - Add chat interface for health questions
+
+2. **Visualization Dashboard**
+   - Add charts showing risk factors
+   - Compare user input to dataset statistics
+
+3. **User Profiles**
+   - Save predictions history
+   - Track changes over time
+
+4. **Mobile Responsive**
+   - Improve mobile UI/UX
+   - Add PWA features
+
+5. **Additional Models**
+   - Try different architectures (CNN, RNN)
+   - Ensemble methods
+   - Compare performance
+
+---
+
+**Good luck with your project! 🎉**

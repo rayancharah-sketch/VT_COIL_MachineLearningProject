@@ -1,0 +1,109 @@
+/* Custom Styles for Diabetes Risk Predictor */
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    border-radius: 15px;
+    border: none;
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+#resultsSection {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-group-item {
+    border-radius: 8px !important;
+    margin-bottom: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+footer {
+    color: white;
+}
+
+/* Loading spinner */
+.spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Risk level specific colors */
+.risk-low {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.risk-moderate {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.risk-high {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}

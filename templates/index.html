@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">🏥 Diabetes Risk Predictor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">🩺 Check Your Diabetes Risk</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>ℹ️ Disclaimer:</strong> This tool is for educational purposes only. 
+                            Always consult with a healthcare professional for medical advice.
+                        </div>
+
+                        <form id="predictionForm">
+                            <div class="row" id="featureInputs">
+                                {% if feature_names %}
+                                    {% for feature in feature_names %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="{{ feature }}" class="form-label">
+                                            {{ feature.replace('_', ' ').title() }}
+                                        </label>
+                                        <input type="number" 
+                                               class="form-control" 
+                                               id="{{ feature }}" 
+                                               name="{{ feature }}" 
+                                               step="0.01" 
+                                               required
+                                               placeholder="Enter {{ feature.replace('_', ' ').lower() }}">
+                                    </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="alert alert-warning">
+                                        Model not loaded. Please train the model first by running:
+                                        <code>python train_model.py</code>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            {% if feature_names %}
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    🔍 Predict Diabetes Risk
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="fillSampleData()">
+                                    📋 Use Sample Data
+                                </button>
+                            </div>
+                            {% endif %}
+                        </form>
+
+                        <!-- Results Section -->
+                        <div id="resultsSection" class="mt-4" style="display: none;">
+                            <hr>
+                            <h4 class="text-center mb-4">Prediction Results</h4>
+                            
+                            <div class="alert" id="riskAlert" role="alert">
+                                <h5 class="alert-heading" id="riskTitle"></h5>
+                                <p id="riskMessage"></p>
+                                <hr>
+                                <p class="mb-0">
+                                    <strong>Confidence:</strong> <span id="confidenceScore"></span>
+                                </p>
+                            </div>
+
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">🔍 Key Contributing Factors</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul id="topFeaturesList" class="list-group list-group-flush">
+                                        <!-- Features will be populated here -->
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="mb-0">💡 AI Health Assistant Insights</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p id="explanationText" class="mb-0" style="white-space: pre-wrap;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% if metrics %}
+                    <div class="card-footer text-muted">
+                        <small>
+                            Model Performance: 
+                            Accuracy: {{ "%.2f"|format(metrics.accuracy * 100) }}% | 
+                            Precision: {{ "%.2f"|format(metrics.precision * 100) }}% | 
+                            Recall: {{ "%.2f"|format(metrics.recall * 100) }}%
+                        </small>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5 mb-4">
+        <p class="text-muted">
+            <small>VGC Group Project | Virginia Tech & USFQ | 2025</small>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
