@@ -91,8 +91,9 @@ VT_COIL_MachineLearningProject/
 - **Type:** Feedforward Neural Network
 - **Architecture:**
   - Input Layer: Variable (based on dataset features)
-  - Hidden Layer 1: 16 neurons, ReLU activation, 30% dropout
-  - Hidden Layer 2: 8 neurons, ReLU activation, 20% dropout
+  - Hidden Layer 1: 32 neurons, ReLU activation, 30% dropout
+  - Hidden Layer 2: 16 neurons, ReLU activation, 20% dropout
+  - Hidden Layer 3: 8 neurons, ReLU activation, 20% dropout
   - Output Layer: 1 neuron, Sigmoid activation
 - **Loss Function:** Binary Crossentropy
 - **Optimizer:** Adam
