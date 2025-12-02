@@ -25,11 +25,15 @@ def build_model(input_dim):
     """
     model = keras.Sequential([
         # Input layer
-        layers.Dense(16, activation='relu', input_dim=input_dim, name='hidden_layer_1'),
+        layers.Dense(32, activation='relu', input_dim=input_dim, name='hidden_layer_1'),
         layers.Dropout(0.3),
         
         # Hidden layer
-        layers.Dense(8, activation='relu', name='hidden_layer_2'),
+        layers.Dense(16, activation='relu', name='hidden_layer_2'),
+        layers.Dropout(0.2),
+
+        # Hidden layer
+        layers.Dense(8, activation='relu', name='hidden_layer_3'),
         layers.Dropout(0.2),
         
         # Output layer
@@ -45,7 +49,7 @@ def build_model(input_dim):
     
     return model
 
-def train_model(X_train, y_train, X_test, y_test, epochs=50, batch_size=32):
+def train_model(X_train, y_train, X_test, y_test, epochs=100, batch_size=32):
     """
     Train the neural network model
     
