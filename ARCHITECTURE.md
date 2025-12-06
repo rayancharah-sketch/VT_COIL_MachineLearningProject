@@ -1,5 +1,19 @@
 # System Architecture Diagram
 
+---
+**LLM ATTRIBUTION:**  
+GitHub Copilot assisted in creating this architecture documentation.  
+**Prompt:** "Generate markdown documentation with: 1) ASCII art diagram showing data flow in boxes 
+connected with arrows (→, ↓, ┌, └), organized into phases (Data Acquisition, Model Training, 
+Web Deployment), 2) Phase 1 showing data.py → Kaggle API → CSV file → preprocess.py with pandas/sklearn 
+→ scaled data splits (X_train, X_test, y_train, y_test) → saved artifacts (scaler.pkl, feature_names.pkl), 
+3) Phase 2 showing train_model.py → TensorFlow/Keras with neural network architecture diagram (Input → 
+Dense(16)+ReLU+Dropout(30%) → Dense(8)+ReLU+Dropout(20%) → Output+Sigmoid) → saved model (diabetes_model.h5) 
+with evaluation metrics, 4) Phase 3 showing Browser → Flask routes (/, /predict) → templates/static files 
+→ model prediction flow. Use monospace formatting for technical details."  
+
+---
+
 ## 📊 Complete Data Flow
 
 ```

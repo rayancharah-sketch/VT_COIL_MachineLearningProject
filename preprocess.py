@@ -1,6 +1,13 @@
 """
 Data Preprocessing Pipeline
 Handles data loading, cleaning, feature engineering, and train/test split
+
+LLM ATTRIBUTION:
+Preprocessing strategy (scaling, train-test split) designed by students.
+GitHub Copilot assisted with print statements for data exploration and debugging output.
+Used LLM for learning pandas and scikit-learn best practices for data preprocessing.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
 """
 import pandas as pd
 import numpy as np

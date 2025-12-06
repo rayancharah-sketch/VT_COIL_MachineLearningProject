@@ -1,5 +1,14 @@
 // JavaScript for Diabetes Risk Predictor
 
+/*
+LLM ATTRIBUTION:
+Frontend interaction logic implemented with GitHub Copilot assistance.
+Students designed AJAX workflow and UI updates, Copilot helped with async/await syntax and DOM manipulation.
+Used LLM for learning JavaScript async/await, debugging AJAX calls, and testing frontend interactions.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
+*/
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('predictionForm');
     

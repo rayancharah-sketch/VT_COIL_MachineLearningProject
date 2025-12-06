@@ -1,6 +1,13 @@
 """
 Project Health Check
 Verifies that all required files and dependencies are in place
+
+LLM ATTRIBUTION:
+Verification logic designed by students, implemented with GitHub Copilot assistance.
+Copilot helped structure the check functions and format status output.
+Used LLM for debugging file path issues and testing verification logic.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
 """
 import os
 import sys

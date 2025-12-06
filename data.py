@@ -1,6 +1,13 @@
 """
 Data Download Script
 Downloads the healthcare diabetes dataset from Kaggle
+
+LLM ATTRIBUTION:
+Dataset selection and Kaggle API usage determined by students.
+GitHub Copilot assisted with implementing Kaggle API authentication and download logic.
+Used LLM for learning Kaggle API and debugging authentication issues.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
 """
 from kaggle.api.kaggle_api_extended import KaggleApi
 

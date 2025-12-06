@@ -1,6 +1,13 @@
 """
 Neural Network Model Training Script
 Builds, trains, and evaluates a neural network for diabetes risk prediction
+
+LLM ATTRIBUTION:
+Core ML logic (model architecture, training, evaluation) was written by students.
+GitHub Copilot assisted with adding print statements and user feedback.
+Used LLM for learning TensorFlow/Keras best practices and debugging model training issues.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
 """
 import numpy as np
 import pandas as pd

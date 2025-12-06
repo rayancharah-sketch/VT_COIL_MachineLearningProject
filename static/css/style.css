@@ -1,5 +1,14 @@
 /* Custom Styles for Diabetes Risk Predictor */
 
+/*
+LLM ATTRIBUTION:
+Design choices (gradient colors, animations, layout) made by students, implemented with GitHub Copilot assistance.
+Copilot helped with CSS syntax and responsive design rules.
+Used LLM for learning modern CSS techniques and debugging layout issues.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
+*/
+
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;

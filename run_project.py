@@ -1,6 +1,14 @@
 """
 Quick Setup and Run Script
 Automates the entire project setup and execution
+
+LLM ATTRIBUTION:
+Automation workflow designed by students, implemented with GitHub Copilot assistance.
+Copilot helped with subprocess error handling and formatted console output.
+Used LLM for debugging subprocess issues and testing automation workflow.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
+END LLM ATTRIBUTION
 """
 import os
 import sys

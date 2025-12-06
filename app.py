@@ -1,6 +1,13 @@
 """
 Flask Web Application for Diabetes Risk Prediction
 Provides a web interface for users to input health metrics and receive risk predictions
+
+LLM ATTRIBUTION:
+Flask routes and web application structure implemented with GitHub Copilot assistance.
+Students designed API endpoints, risk thresholds, and prediction workflow before implementation.
+Used LLM for learning Flask framework, debugging API responses, and testing error handling.
+Code was reviewed, reformatted, and edited by LLM for readability.
+Final code was reviewed and edited for accuracy by students.
 """
 from flask import Flask, render_template, request, jsonify
 import numpy as np
