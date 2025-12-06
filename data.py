@@ -1,33 +1,18 @@
 """
-Data Verification Script
-Verifies the local healthcare diabetes dataset exists and displays basic info
+Data Download Script
+Downloads the healthcare diabetes dataset from Kaggle
 """
-import os
-import pandas as pd
+from kaggle.api.kaggle_api_extended import KaggleApi
 
-def verify_dataset():
-    """Verify the local diabetes dataset exists and show basic info"""
-    dataset_path = "Healthcare-Diabetes.csv"
+def download_dataset():
+    """Download the diabetes dataset from Kaggle"""
+    # Initialize and authenticate Kaggle API
+    api = KaggleApi()
+    api.authenticate()
     
-    if not os.path.exists(dataset_path):
-        print(f"✗ Dataset not found: {dataset_path}")
-        print("Please ensure 'Healthcare-Diabetes.csv' is in the project directory.")
-        return False
-    
-    print(f"✓ Dataset found: {dataset_path}")
-    
-    # Load and display basic info
-    try:
-        df = pd.read_csv(dataset_path)
-        print(f"\n📊 Dataset Information:")
-        print(f"   Rows: {len(df)}")
-        print(f"   Columns: {len(df.columns)}")
-        print(f"   Features: {', '.join(df.columns.tolist())}")
-        print(f"\n✓ Dataset is ready to use!")
-        return True
-    except Exception as e:
-        print(f"✗ Error reading dataset: {e}")
-        return False
+    # Download and unzip dataset
+    api.dataset_download_files("nanditapore/healthcare-diabetes", path=".", unzip=True)
+    print("✓ Downloaded dataset 'nanditapore/healthcare-diabetes' successfully")
 
 if __name__ == "__main__":
-    verify_dataset()
+    download_dataset()

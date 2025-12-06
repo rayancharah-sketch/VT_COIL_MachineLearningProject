@@ -115,6 +115,7 @@ def main():
         "seaborn",
         "flask",
         "joblib",
+        "kaggle",
     ]
     
     all_packages = True
@@ -125,7 +126,7 @@ def main():
     # Check optional files/artifacts
     print("\n🔍 Training Artifacts (created after training):")
     artifacts = [
-        ("Healthcare-Diabetes.csv", "Dataset"),
+        ("healthcare-diabetes.csv", "Dataset"),
         ("models/diabetes_model.h5", "Trained model"),
         ("models/scaler.pkl", "Feature scaler"),
         ("models/feature_names.pkl", "Feature names"),
@@ -137,42 +138,34 @@ def main():
         if check_file(filepath, description):
             artifacts_exist += 1
     
-    # Check local dataset
-    print("\n📁 Local Dataset:")
-    dataset_path = "Healthcare-Diabetes.csv"
-    if os.path.exists(dataset_path):
-        print(f"✓ Dataset found: {dataset_path}")
-        try:
-            import pandas as pd
-            df = pd.read_csv(dataset_path)
-            print(f"  → {len(df)} rows, {len(df.columns)} columns")
-        except:
-            pass
+    # Check Kaggle API
+    print("\n🔑 Kaggle API Configuration:")
+    kaggle_path = os.path.expanduser("~/.kaggle/kaggle.json")
+    windows_kaggle_path = os.path.expanduser("~\\.kaggle\\kaggle.json")
+    
+    if os.path.exists(kaggle_path) or os.path.exists(windows_kaggle_path):
+        print("✓ Kaggle API credentials found")
     else:
-        print(f"✗ Dataset NOT found: {dataset_path}")
-        print("  → Please ensure Healthcare-Diabetes.csv is in the project directory")
+        print("✗ Kaggle API credentials NOT found")
+        print("  → Download from https://www.kaggle.com/account")
+        print(f"  → Place in: {windows_kaggle_path}")
     
     # Summary
     print("\n" + "="*60)
     print("  SUMMARY")
     print("="*60)
     
-    if all_files:
-        if all_packages:
-            print("✅ All required files and packages are in place!")
-        else:
-            print("⚠  Most components ready (some optional packages missing)")
-            print("   Core packages (tensorflow, sklearn, pandas, flask) are installed!")
-        
+    if all_files and all_packages:
+        print("✅ All required files and packages are in place!")
         if artifacts_exist == len(artifacts):
             print("✅ All training artifacts found - ready to run!")
             print("\n🚀 Next step: python app.py")
         else:
             print("⚠  Training artifacts missing - need to train model")
             print("\n🚀 Next steps:")
-            print("   1. python data.py        (verify dataset)")
+            print("   1. python data.py       (download dataset)")
             print("   2. python train_model.py (train model)")
-            print("   3. python app.py         (run web app)")
+            print("   3. python app.py        (run web app)")
     else:
         if not all_files:
             print("❌ Some project files are missing")

@@ -52,17 +52,21 @@ def main():
                        f"{sys.executable} -m pip install -r requirements.txt"):
         print("⚠ Some packages may not have installed. Continuing anyway...")
     
-    # Step 2: Verify dataset
-    print_header("STEP 2: Verifying Local Dataset")
-    if os.path.exists("Healthcare-Diabetes.csv"):
-        print("✓ Dataset found: Healthcare-Diabetes.csv")
-        run_command("Verifying dataset", f"{sys.executable} data.py", check=False)
+    # Step 2: Download dataset
+    print_header("STEP 2: Downloading Dataset")
+    if os.path.exists("healthcare-diabetes.csv"):
+        print("✓ Dataset already exists, skipping download")
     else:
-        print("✗ Dataset not found: Healthcare-Diabetes.csv")
-        print("Please ensure 'Healthcare-Diabetes.csv' is in the project directory.")
-        response = input("\nWould you like to continue anyway? (y/n): ")
-        if response.lower() != 'y':
-            sys.exit(1)
+        if not run_command("Downloading dataset from Kaggle", 
+                          f"{sys.executable} data.py", check=False):
+            print("\n⚠ Dataset download failed!")
+            print("Please ensure:")
+            print("  1. You have a Kaggle account")
+            print("  2. Your kaggle.json file is in C:\\Users\\<YourName>\\.kaggle\\")
+            print("  3. You've accepted the dataset's terms on Kaggle.com")
+            response = input("\nWould you like to continue anyway? (y/n): ")
+            if response.lower() != 'y':
+                sys.exit(1)
     
     # Step 3: Train model
     print_header("STEP 3: Training Neural Network Model")

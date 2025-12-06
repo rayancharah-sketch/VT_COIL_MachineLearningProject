@@ -30,9 +30,11 @@ wheels/
 .ipynb_checkpoints
 notebooks/.ipynb_checkpoints/
 
-# Dataset files - Keep Healthcare-Diabetes.csv in repo
-# *.csv - Commented out to keep local dataset
+# Dataset files (large files)
+*.csv
 *.xlsx
+*.json
+healthcare-diabetes.csv
 
 # Model files (can be large)
 models/*.h5

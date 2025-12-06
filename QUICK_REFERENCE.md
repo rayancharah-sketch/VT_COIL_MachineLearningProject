@@ -7,13 +7,16 @@
 # 1. Install all dependencies
 pip install -r requirements.txt
 
-# 2. Verify dataset (optional - dataset already included)
+# 2. Configure Kaggle API (one-time)
+# Place kaggle.json in C:\Users\<YourUsername>\.kaggle\
+
+# 3. Download dataset
 python data.py
 
-# 3. Train the model
+# 4. Train the model
 python train_model.py
 
-# 4. Launch web app
+# 5. Launch web app
 python app.py
 ```
 
@@ -28,7 +31,7 @@ python run_project.py
 
 | File | Purpose |
 |------|---------|
-| `data.py` | Verifies the local diabetes dataset |
+| `data.py` | Downloads the diabetes dataset from Kaggle |
 | `preprocess.py` | Cleans and prepares data for training |
 | `train_model.py` | Builds and trains the neural network |
 | `app.py` | Flask web server for predictions |
@@ -113,12 +116,12 @@ Your actual results may vary based on the dataset and training parameters.
 pip install tensorflow==2.15.0 --force-reinstall
 ```
 
-### Problem: Dataset not found
+### Problem: Kaggle API not working
 ```bash
-# Solution: Ensure Healthcare-Diabetes.csv is in the project root
-dir Healthcare-Diabetes.csv
+# Solution: Check kaggle.json location
+dir C:\Users\%USERNAME%\.kaggle\
 
-# Should show: Healthcare-Diabetes.csv
+# Should show: kaggle.json
 ```
 
 ### Problem: Model training takes too long
@@ -142,7 +145,7 @@ python train_model.py
 ## 📋 Project Checklist
 
 ### Before Presentation
-- [ ] Dataset verified (Healthcare-Diabetes.csv present)
+- [ ] Dataset downloaded successfully
 - [ ] Model trained with good performance (>70% accuracy)
 - [ ] Web application runs without errors
 - [ ] Tested predictions with various inputs
